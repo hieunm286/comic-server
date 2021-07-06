@@ -1,4 +1,6 @@
-export const CommonPageLimit = (page, limit) => {
+export const CommonPageLimit = (args) => {
+  let { page, limit } = args;
+
   if (!page) page = 1;
   if (!limit) limit = 5;
 
@@ -9,5 +11,5 @@ export const CommonPageLimit = (page, limit) => {
   page = parseInt(page);
   limit = parseInt(limit);
 
-  return { page, limit }
+  return { ...args, page, limit };
 };
