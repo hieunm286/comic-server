@@ -10,7 +10,24 @@ const StorySchema = new Schema(
             type: String,
             required: true
         },
+        otherName: {
+            type: String,
+        },
         describe: {
+            type: String
+        },
+        rate: {
+          ratingValue: {
+              type: String
+          },
+            reviewCount: {
+              type: String
+            }
+        },
+        view: {
+            type: String
+        },
+        status: {
             type: String
         },
         chapters: [{
@@ -19,10 +36,10 @@ const StorySchema = new Schema(
             },
             content: [String]
         }],
-        authors: [{
+        author: {
             type: mongoose.Types.ObjectId,
             ref: 'Author'
-        }],
+        },
         kinds: [{
             type: mongoose.Types.ObjectId,
             ref: 'Kind'

@@ -18,6 +18,7 @@ const getAllStories = async (args = {}) => {
 
   const poppulateObj = {
     kinds: { __from: "kinds", __isArray: true, __unSelect: ["stories"] },
+    author: { __from: "authors", __unSelect: ["stories"] }
   };
 
   const validSearchOption = getSearchOption(args, searchModel);
