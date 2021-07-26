@@ -71,7 +71,7 @@ const getKindById = async (args = {}) => {
     ])
     .lean();
 
-  if (!kind) throw new Error("Story not found");
+  if (!kind) throw new Error("Kind not found");
 
   return kind;
 };

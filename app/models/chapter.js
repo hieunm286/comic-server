@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const AuthorSchema = new Schema(
+const ChapterSchema = new Schema(
     {
-        name: {
+        title: {
             type: String
         },
         slug: {
             type: String
         },
-        stories: [{
+        content: [String],
+        story: {
             type: mongoose.Types.ObjectId,
             ref: 'Story'
-        }]
+        },
     },
     { timestamps: true },
 )
 
-const Author = mongoose.model('Author', AuthorSchema)
+const Author = mongoose.model('Chapter', ChapterSchema)
 
 module.exports = Author

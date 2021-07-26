@@ -1,4 +1,7 @@
 import Story from "../../../models/story";
+import Chapter from "../../../models/chapter";
+const mongoose = require('mongoose');
+
 import { CommonPageLimit } from "../../../utils/common-function";
 import {
   getSearchOption,
@@ -72,10 +75,12 @@ const getStoryById = async (args = {}) => {
     .lean();
   if (!story) throw new Error("Story not found");
 
-  story.totalChapter = story.chapters.length;
-  story.chapters = story.chapters.reverse()[vChapter - 1];
+  const chapters = await Chapter.find({ story: mongoose.Types.ObjectId(story._id) }, { content: false, story: false }).sort('slug').collation({
+    locale: "vi",
+    numericOrdering: true,
+  });
 
-  return story;
+  return { ...story, chapters: chapters };
 };
 
 export { getAllStories, getStoryById };

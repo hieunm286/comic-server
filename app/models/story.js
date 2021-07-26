@@ -10,6 +10,9 @@ const StorySchema = new Schema(
             type: String,
             required: true
         },
+        slug: {
+            type: String
+        },
         otherName: {
             type: String,
         },
@@ -30,12 +33,6 @@ const StorySchema = new Schema(
         status: {
             type: String
         },
-        chapters: [{
-            title: {
-                type: String
-            },
-            content: [String]
-        }],
         author: {
             type: mongoose.Types.ObjectId,
             ref: 'Author'

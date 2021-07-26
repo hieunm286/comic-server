@@ -8,6 +8,10 @@ const KindSchema = new Schema(
             required: true,
             unique: true
         },
+        slug: {
+            type: String,
+            unique: true
+        },
         stories: [{
             type: mongoose.Types.ObjectId,
             ref: 'Story'
