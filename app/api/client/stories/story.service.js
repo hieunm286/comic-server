@@ -71,7 +71,7 @@ const getStoryById = async (args = {}) => {
     const { vStoryId, vChapter } = validateArgs(args);
 
   const story = await Story.findById(vStoryId)
-    .populate([{ path: "kinds", select: "name" }])
+    .populate([{ path: "kinds", select: "name slug" }, { path: 'author', select: "name slug" }])
     .lean();
   if (!story) throw new Error("Story not found");
 

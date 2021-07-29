@@ -6,7 +6,7 @@ const getByChapterId = async (args = {}) => {
 
     if (!chapterId) throw new Error("Missing kinds");
 
-    const chapter = await Chapter.findById(chapterId).select("_id title content slug")
+    const chapter = await Chapter.findById(chapterId).select("_id title content slug referrer")
         .lean();
 
     if (!chapter) throw new Error("Chapter not found");

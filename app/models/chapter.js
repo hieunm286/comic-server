@@ -9,6 +9,9 @@ const ChapterSchema = new Schema(
         slug: {
             type: String
         },
+        referrer: {
+            type: String
+        },
         content: [String],
         story: {
             type: mongoose.Types.ObjectId,
